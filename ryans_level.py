@@ -3,6 +3,9 @@ from pip._vendor.progress.colors import black
 from pygame.locals import *
 
 pygame.init()
+clock = pygame.time.Clock()
+fps = 60
+
 screen_width = 1000
 screen_height = 600
 
@@ -65,11 +68,20 @@ class Level():
 
 class Player():
     def __init__(self, x, y):
-        img = pygame.image.load('images/player/p1_walk0.png')
-        self.image = pygame.transform.scale(img, (40, 80))
+        self.images_moving = []
+        self.index = 0
+        self.counter = 0
+        for num in range(0, 10):
+            img = pygame.image.load(f'images/player/p1_walk{num}.png')
+            img = pygame.transform.scale(img, (66, 92))
+            self.images_moving.append(img)
+        self.img = self.images_moving[self.index]
+        self.image = pygame.transform.scale(img, (66, 92))
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.y_velocity = 0
+        self.jumped = False
 
     def update(self):
         dx = 0
@@ -79,10 +91,22 @@ class Player():
             dx -= 5
         elif key[pygame.K_RIGHT]:
             dx += 5
-        elif key[pygame.K_UP]:
-            dy -= 5
-        elif key[pygame.K_DOWN]:
-            dy += 5
+        elif key[pygame.K_SPACE] and self.jumped == False:
+            self.y_velocity = -15
+            self.jumped = True
+        elif key[pygame.K_SPACE]:
+            self.jumped = False
+
+        self.index += 1
+        self.image = self.images_moving[self.index]
+        if self.index >= len(self.images_moving):
+            self.index = 0
+
+        self.y_velocity += 1
+        if self.y_velocity > 10:
+            self.y_velocity = 10
+        dy += self.y_velocity
+
         self.rect.x += dx
         self.rect.y += dy
 
@@ -105,11 +129,12 @@ level_data = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 ]
-player = Player(100, 150)
+player = Player(100, screen_height - 245)
 level = Level(level_data)
 run = True
 
 while run == True:
+    clock.tick(fps)
     screen.blit(background, (0, 0))
     level.draw()
     player.update()
