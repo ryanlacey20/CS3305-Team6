@@ -66,7 +66,7 @@ class Level():
             screen.blit(block[0], block[1])
 
 
-class Player():
+class Player:
     def __init__(self, x, y):
         self.images_moving = []
         self.index = 0
@@ -80,6 +80,8 @@ class Player():
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.width = self.image.get_width()
+        self.height = self.image.get_height()
         self.y_velocity = 0
         self.jumped = False
 
@@ -95,9 +97,9 @@ class Player():
             dx += 5
             self.counter += 1
         elif key[pygame.K_SPACE] and self.jumped == False:
-            self.y_velocity = -15
+            self.y_velocity = -5
             self.jumped = True
-        elif key[pygame.K_SPACE]:
+        elif key[pygame.K_SPACE] and self.jumped == True:
             self.jumped = False
         if key[pygame.K_LEFT] == False and key[pygame.K_RIGHT] == False:
             self.counter = 0
@@ -115,6 +117,13 @@ class Player():
         if self.y_velocity > 10:
             self.y_velocity = 10
         dy += self.y_velocity
+
+        for block in level.block_list:
+            if block[1].colliderect(self.rect.x, self.rect.y+dy, self.width, self.height ):
+                if self.y_velocity < 0:
+                    dy = block[1].bottom - self.rect.top
+                if self. y_velocity >= 0:
+                    dy = block[1].top -self.rect.bottom
 
         self.rect.x += dx
         self.rect.y += dy
