@@ -88,6 +88,7 @@ class World():
 
 class Player():
 	def __init__(self, x, y):
+		self.orientation = "Right"
 		self.anim_images = []
 		self.width = 66
 		self.height = 92
@@ -121,14 +122,22 @@ class Player():
 		if key[pygame.K_SPACE] and self.jumped == False:
 			self.vely = -15
 			self.jumped = True
-			self.image = self.jumpImage
+
+			if self.orientation == "Right":
+				self.image = self.jumpImage
+			else:
+				self.image = pygame.transform.flip(self.jumpImage, True, False)
+
 		if key[pygame.K_LEFT]:
 			dx -= 5
 			self.counter += 1
+			self.orientation = "Left"
 		if key[pygame.K_RIGHT]:
 			dx += 5
 			self.counter += 1
+			self.orientation = "Right"
 		if key[pygame.K_LEFT] == False and key[pygame.K_RIGHT] == False and self.jumped == False:
+			# Stopped moving
 			self.counter = 0
 			self.index = 0
 			self.image = self.anim_images[self.index]
@@ -149,7 +158,11 @@ class Player():
 					self.index -= 1
 			if self.index >= len(self.anim_images):
 				self.index = 0
-			self.image = self.anim_images[self.index]
+
+			if self.orientation == "Right":
+				self.image = self.anim_images[self.index]
+			else:
+				self.image = pygame.transform.flip(self.anim_images[self.index], True, False)
 
 		#gravity
 		self.vely += 1
