@@ -84,6 +84,11 @@ class World():
                     block_rect.y = row_count * block_size
                     block = (block_skin, block_rect)
                     self.block_list.append(block)
+                elif bit == 6:
+                    enemy = Enemy("img/Level2/bee_fly.png", column * block_size, row_count * block_size)
+                    enemy_list.add(enemy)
+
+
                 column += 1
             row_count += 1
 
@@ -212,6 +217,14 @@ class Player():
         screen.blit(self.image, self.rect)
 
 
+class Enemy(pygame.sprite.Sprite):
+    def __init__(self, skin, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(skin)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
 class UI():
 
     def __init__(self):
@@ -233,12 +246,13 @@ underFloor.insert(0, 1)
 
 ui = UI()
 
-
+enemy_list = pygame.sprite.Group()
 def run(world):
     player = Player(100, height - 150, world)
+
     run = True
     while run:
-
+        enemy_list.draw(screen)
         clock.tick(fps)
 
         screen.blit(world.background, (-300, 0))
