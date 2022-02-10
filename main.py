@@ -16,7 +16,27 @@ space_level = [
      1, 1]
 ]
 
-world1 = World(space_level, "img/Level1/bg.jpg", "img/Level1/Tiles/castleCenter.png", "img/Level1/Tiles/castleLeft.png", "img/Level1/Tiles/castleMid.png", "img/Level1/Tiles/castleRight.png", "img/Level1/Tiles/box.png")
-run(world1)
+jungle_level = [
 
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+
+]
+
+world1 = World(space_level, "img/Level1/bg.jpg", "img/Level1/Tiles/castleCenter.png", "img/Level1/Tiles/castleLeft.png", "img/Level1/Tiles/castleMid.png", "img/Level1/Tiles/castleRight.png", "img/Level1/Tiles/box.png")
+
+
+world2 = World(jungle_level, "img/Level2/jungle_background.jpeg", "img/Level2/grass.png", "img/Level2/grassCenter.png", "img/Level2/bee_fly.png", "img/Level2/thorns.png", "img/Level2/spear.png")
+
+run(world2)
 

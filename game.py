@@ -26,55 +26,58 @@ def current_milli_time():
 curTime = current_milli_time()
 
 
+def skin_loader(skin_to_load):
+    if skin_to_load:
+        loaded_skin = pygame.image.load('%s' % skin_to_load)
+        return loaded_skin
+    else:
+        return False
+
+
 class World():
     def __init__(self, level_data, background, bit1_skin, bit2_skin, bit3_skin, bit4_skin, bit5_skin):
         self.block_list = []
-        bit1 = pygame.image.load('%s' % bit1_skin)
-        bit2 = pygame.image.load('%s' % bit2_skin)
-        bit3 = pygame.image.load('%s' % bit3_skin)
-        bit4 = pygame.image.load('%s' % bit4_skin)
-        bit5 = pygame.image.load('%s' % bit5_skin)
         self.level_data = level_data
-        self.bit1_skin = bit1
-        self.bit2_skin = bit2
-        self.bit3_skin = bit3
-        self.bit4_skin = bit4
-        self.bit5_skin = bit5
-        self.background = pygame.image.load('%s' % background)
+        self.bit1_skin = skin_loader(bit1_skin)
+        self.bit2_skin = skin_loader(bit2_skin)
+        self.bit3_skin = skin_loader(bit3_skin)
+        self.bit4_skin = skin_loader(bit4_skin)
+        self.bit5_skin = skin_loader(bit5_skin)
+        self.background = skin_loader(background)
 
         row_count = 0
         for row in self.level_data:
             column = 0
             for bit in row:
-                if bit == 1:
+                if bit == 1 and self.bit1_skin:
                     block_skin = pygame.transform.scale(self.bit1_skin, (block_size, block_size))
                     block_rect = block_skin.get_rect()
                     block_rect.x = column * block_size
                     block_rect.y = row_count * block_size
                     block = (block_skin, block_rect)
                     self.block_list.append(block)
-                elif bit == 2:
+                elif bit == 2 and self.bit2_skin:
                     block_skin = pygame.transform.scale(self.bit2_skin, (block_size, block_size))
                     block_rect = block_skin.get_rect()
                     block_rect.x = column * block_size
                     block_rect.y = row_count * block_size
                     block = (block_skin, block_rect)
                     self.block_list.append(block)
-                elif bit == 3:
+                elif bit == 3 and self.bit3_skin:
                     block_skin = pygame.transform.scale(self.bit3_skin, (block_size, block_size))
                     block_rect = block_skin.get_rect()
                     block_rect.x = column * block_size
                     block_rect.y = row_count * block_size
                     block = (block_skin, block_rect)
                     self.block_list.append(block)
-                elif bit == 4:
+                elif bit == 4 and self.bit4_skin:
                     block_skin = pygame.transform.scale(self.bit4_skin, (block_size, block_size))
                     block_rect = block_skin.get_rect()
                     block_rect.x = column * block_size
                     block_rect.y = row_count * block_size
                     block = (block_skin, block_rect)
                     self.block_list.append(block)
-                elif bit == 5:
+                elif bit == 5 and self.bit5_skin:
                     block_skin = pygame.transform.scale(self.bit5_skin, (block_size, block_size))
                     block_rect = block_skin.get_rect()
                     block_rect.x = column * block_size
@@ -227,7 +230,6 @@ floor.insert(0, 1)
 floor.insert(0, 1)
 underFloor.insert(0, 1)
 underFloor.insert(0, 1)
-
 
 ui = UI()
 
