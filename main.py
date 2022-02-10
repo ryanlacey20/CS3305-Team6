@@ -16,7 +16,7 @@ space_level = [
      1, 1]
 ]
 
-world1 = World(space_level, "img/bg.jpg", "img/Tiles/castleCenter.png", "img/Tiles/castleLeft.png", "img/Tiles/castleMid.png", "img/Tiles/castleRight.png", "img/Tiles/box.png")
+world1 = World(space_level, "img/Level1/bg.jpg", "img/Level1/Tiles/castleCenter.png", "img/Level1/Tiles/castleLeft.png", "img/Level1/Tiles/castleMid.png", "img/Level1/Tiles/castleRight.png", "img/Level1/Tiles/box.png")
 run(world1)
 
-world2 =
+
