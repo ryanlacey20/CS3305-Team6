@@ -71,7 +71,7 @@ class Player():
         self.images_moving = []
         self.index = 0
         self.counter = 0
-        for num in range(0, 10):
+        for num in range(0, 12):
             img = pygame.image.load(f'images/player/p1_walk{num}.png')
             img = pygame.transform.scale(img, (66, 92))
             self.images_moving.append(img)
@@ -86,21 +86,30 @@ class Player():
     def update(self):
         dx = 0
         dy = 0
+        cooldown = 10
         key = pygame.key.get_pressed()
         if key[pygame.K_LEFT]:
             dx -= 5
+            self.counter += 1
         elif key[pygame.K_RIGHT]:
             dx += 5
+            self.counter += 1
         elif key[pygame.K_SPACE] and self.jumped == False:
             self.y_velocity = -15
             self.jumped = True
         elif key[pygame.K_SPACE]:
             self.jumped = False
-
-        self.index += 1
-        self.image = self.images_moving[self.index]
-        if self.index >= len(self.images_moving):
+        if key[pygame.K_LEFT] == False and key[pygame.K_RIGHT] == False:
+            self.counter = 0
             self.index = 0
+            self.image = self.images_moving[self.index]
+
+        if self.counter > cooldown:
+            self.counter = 0
+            self.index += 1
+            self.image = self.images_moving[self.index]
+            if self.index >= len(self.images_moving) -1 :
+                self.index = 0
 
         self.y_velocity += 1
         if self.y_velocity > 10:
