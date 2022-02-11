@@ -1,0 +1,46 @@
+{
+    "Title": "Jungle Level",
+    "ID": 2,
+    "background": "img/Level2/jungle_background.jpeg",
+
+    "player_textures" : [
+                            "img/Level2/player/p3_walk0.png",
+                            "img/Level2/player/p3_walk1.png",
+                            "img/Level2/player/p3_walk2.png",
+                            "img/Level2/player/p3_walk3.png",
+                            "img/Level2/player/p3_walk4.png",
+                            "img/Level2/player/p3_walk5.png",
+                            "img/Level2/player/p3_walk6.png",
+                            "img/Level2/player/p3_walk7.png",
+                            "img/Level2/player/p3_walk8.png",
+                            "img/Level2/player/p3_walk9.png",
+                            "img/Level2/player/p3_walk10.png",
+                            "img/Level2/player/p3_walk11.png"
+                        ],
+
+    "player_jump_texture" : "img/Level2/player/jump.png",
+
+    "textures": [    
+                    "img/Level2/grass.png", 
+                    "img/Level2/grassCenter.png", 
+                    "img/Level2/bee_fly.png", 
+                    "img/Level2/thorns.png", 
+                    "img/Level2/spear.png"
+                ],
+
+    "data" :    [
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+                ]
+
+}

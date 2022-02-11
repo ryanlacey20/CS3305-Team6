@@ -1,0 +1,46 @@
+{
+    "Title": "Space Level",
+    "ID": 1,
+    "background": "img/Level1/bg.jpg",
+
+    "player_textures" : [
+                            "img/Level1/player/p1_walk0.png",
+                            "img/Level1/player/p1_walk1.png",
+                            "img/Level1/player/p1_walk2.png",
+                            "img/Level1/player/p1_walk3.png",
+                            "img/Level1/player/p1_walk4.png",
+                            "img/Level1/player/p1_walk5.png",
+                            "img/Level1/player/p1_walk6.png",
+                            "img/Level1/player/p1_walk7.png",
+                            "img/Level1/player/p1_walk8.png",
+                            "img/Level1/player/p1_walk9.png",
+                            "img/Level1/player/p1_walk10.png",
+                            "img/Level1/player/p1_walk11.png"
+                        ],
+
+    "player_jump_texture" : "img/Level1/player/jump.png",
+    
+    "textures": [    
+                    "img/Level1/Tiles/castleCenter.png", 
+                    "img/Level1/Tiles/castleMid.png", 
+                    "img/Level1/Tiles/castleLeft.png", 
+                    "img/Level1/Tiles/castleRight.png", 
+                    "img/Level1/Tiles/box.png"
+                ],
+
+    "data": [
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 2, 4, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            ]
+
+}
