@@ -1,0 +1,22 @@
+{
+    "Title": "Cave Level",
+    "ID": 3,
+    "background": "",
+
+    "player_textures" : [
+                            "",
+                            "",
+                            ""
+                        ],
+
+    "player_jump_texture" : "",
+
+    "textures": [    
+
+                ],
+
+    "data" :    [
+
+                ]
+
+}
