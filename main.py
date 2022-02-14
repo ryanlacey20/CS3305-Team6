@@ -1,4 +1,4 @@
-from Game import *
+from game import *
 from World import *
 from Player import *
 from UI import *
@@ -7,8 +7,9 @@ from Functions import *
 
 space_level = readLevel("levels/space.json")
 jungle_level = readLevel("levels/jungle.json")
+cave_level = readLevel("levels/cave.json")
 
-levels = [space_level, jungle_level]
+levels = [space_level, jungle_level, cave_level]
 
 level = 0
 
