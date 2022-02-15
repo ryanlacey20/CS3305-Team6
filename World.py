@@ -2,7 +2,7 @@ import pygame
 from Functions import *
 
 class World():
-	def __init__(self, game, level):
+	def __init__(self, game, level, music):
 		self.game = game
 		self.background = pygame.image.load(level["background"])
 
@@ -10,6 +10,8 @@ class World():
 
 		self.campos = 100
 		self.textures = []
+
+		self.musicUpdater(music)
 
 		for texture in level["textures"]:
 			self.textures.append(pygame.image.load(texture))
@@ -68,3 +70,8 @@ class World():
 			self.game.screen.blit(b[0], b[1])
 			#pygame.draw.rect(screen, (255, 255, 255), block[1], 2)
 		self.campos = 0
+
+	def musicUpdater(self, music):
+		pygame.mixer.music.unload()
+		pygame.mixer.music.load(music)
+		pygame.mixer.music.play(-1, 100000)
