@@ -14,9 +14,10 @@ levels = [space_level, jungle_level, cave_level]
 level = 0
 
 enemy_group = pygame.sprite.Group()
+text = levels[level]["text"]
 
 game = Game(levels[level]["Title"], 1000, 600, levels[level]["ID"])
-world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"])
+world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"], text)
 player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
 ui = UI(game)
 
@@ -43,11 +44,11 @@ while run:
     pygame.display.update()
 
     # When the camera gets passed 150,000 units then switch to the next level
-    if(abs(world.camAbsolutePosition) > 150000):
+    if(abs(world.camAbsolutePosition) > 350000):
         if level != len(levels) - 1:
             level += 1
             enemy_group.empty()
-            world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"])
+            world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"], levels[level]["text"])
             player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
             game.updateTitle(levels[level]["Title"])
             game.levelid = levels[level]["ID"]

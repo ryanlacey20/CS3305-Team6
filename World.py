@@ -3,12 +3,24 @@ from Functions import *
 from Enemy import *
 
 class World():
-	def __init__(self, game, level, music, enemy_group, enemy_textures, enemy_death_texture, enemy_death_sound):
+	def __init__(self, game, level, music, enemy_group, enemy_textures, enemy_death_texture, enemy_death_sound, text):
 		self.game = game
 		self.background = pygame.image.load(level["background"])
 		self.enemy_textures = enemy_textures
 		self.enemy_death_texture = enemy_death_texture
 		self.enemy_death_sound = pygame.mixer.Sound(enemy_death_sound)
+
+		self.levelid = level["ID"]
+
+		self.text = text
+		self.texts = []
+
+		pygame.font.init()
+
+		for text in self.text:
+			self.font = pygame.font.Font('fonts/Oswald.ttf', text[1])
+			t = self.font.render(text[0], True, (255, 255, 255))
+			self.texts.append([ t, text[2], text[3] ])
 
 		self.camAbsolutePosition = 100
 
@@ -70,6 +82,10 @@ class World():
 
 	def draw(self):
 		self.game.screen.blit(self.background, (-300, 0))
+
+		for text in self.texts:
+			text[1] -= self.campos
+			self.game.screen.blit(text[0], (text[1], text[2]))
 
 		for enemy in self.enemy_group:
 			enemy.rect.x -= self.campos

@@ -75,8 +75,13 @@ class Player():
 				self.image = pygame.transform.flip(self.anim_images[self.index], True, False)
 
 		#gravity
-		self.vely += 1
-		if self.vely > 10:
+		# Is it the space level, if so drop the gravity
+		if self.world.levelid == 1:
+			self.vely += 0.5
+		else:
+			self.vely += 1
+
+		if self.vely > 20:
 			self.vely = 10
 		dy += self.vely
 
