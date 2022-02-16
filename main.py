@@ -13,21 +13,24 @@ levels = [space_level, jungle_level, cave_level]
 
 level = 0
 
+enemy_group = pygame.sprite.Group()
+
 game = Game(levels[level]["Title"], 1000, 600, levels[level]["ID"])
-world = World(game, levels[level], levels[level]["music"])
+world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"])
 player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
 ui = UI(game)
 
 run = True
 clock = pygame.time.Clock()
 while run:
-
     clock.tick(game.fps)
 
     world.draw()
 
-    player.update()
+    enemy_group.update()
+    enemy_group.draw(game.screen)
 
+    player.update()
 
     ui.draw()
 
@@ -43,7 +46,8 @@ while run:
     if(abs(world.camAbsolutePosition) > 150000):
         if level != len(levels) - 1:
             level += 1
-            world = World(game, levels[level], levels[level]["music"])
+            enemy_group.empty()
+            world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"])
             player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
             game.updateTitle(levels[level]["Title"])
             game.levelid = levels[level]["ID"]

@@ -1,12 +1,18 @@
 import pygame
 from Functions import *
+from Enemy import *
 
 class World():
-	def __init__(self, game, level, music):
+	def __init__(self, game, level, music, enemy_group, enemy_textures, enemy_death_texture, enemy_death_sound):
 		self.game = game
 		self.background = pygame.image.load(level["background"])
+		self.enemy_textures = enemy_textures
+		self.enemy_death_texture = enemy_death_texture
+		self.enemy_death_sound = pygame.mixer.Sound(enemy_death_sound)
 
 		self.camAbsolutePosition = 100
+
+		self.enemy_group = enemy_group
 
 		self.campos = 100
 		self.textures = []
@@ -56,11 +62,17 @@ class World():
 					block_rect.y = row_count * game.block_size
 					block = (block_skin, block_rect)
 					self.block_list.append(block)
+				elif bit == "E":
+					enemy = Enemy(self, column * game.block_size, row_count * game.block_size + 22)
+					enemy_group.add(enemy)
 				column += 1
 			row_count += 1
 
 	def draw(self):
 		self.game.screen.blit(self.background, (-300, 0))
+
+		for enemy in self.enemy_group:
+			enemy.rect.x -= self.campos
 
 		for block in self.block_list:
 			b = block
@@ -75,3 +87,4 @@ class World():
 		pygame.mixer.music.unload()
 		pygame.mixer.music.load(music)
 		pygame.mixer.music.play(-1, 100000)
+		pygame.mixer.music.set_volume(0.1)

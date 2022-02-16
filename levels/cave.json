@@ -20,6 +20,14 @@
 
     "player_jump_texture" : "img/Level3/player/jump.png",
 
+    "enemy_textures" : [
+                        "img/Level1/Enemy/slimeWalk1.png"
+                       ],
+
+    "enemy_death_texture" : "img/Level1/Enemy/slimeDead.png",
+
+    "enemy_death_sound" : "sounds/Level1/enemy_death.mp3",
+
     "textures": [
                     "img/Level3/Tiles/caveCenter.png",
                     "img/Level3/Tiles/caveMid.png",

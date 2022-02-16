@@ -98,8 +98,27 @@ class Player():
 					dy = block[1].top - self.rect.bottom
 					self.jumped = False
 					self.vely = 0
-					
 
+		for enemy in self.world.enemy_group:
+			if enemy.dead:
+				continue
+			# Collided on the x axis, hurt him
+			if enemy.rect.colliderect(self.rect.x + dx, self.rect.y, self.width, self.height):
+				pass
+
+			# Collided on the y axis, do damage to the enemy
+			# Y axis is above the enemy
+			# Y axis is only 20 pixels above the enemy
+			# x axis is between the x of the enemy and less than the width of the enemy
+			if (
+					self.rect.y + self.rect.height < enemy.rect.y + enemy.rect.height and 
+					self.rect.y + self.rect.height > enemy.rect.y - 20 and
+					self.rect.x > enemy.rect.x + -50 and
+					self.rect.x < (enemy.rect.x + enemy.rect.width)
+				):
+				enemy.die()
+				self.jump()
+					
 		if self.rect.bottom > self.game.height:
 			self.rect.bottom = self.game.height
 			dy = 0
