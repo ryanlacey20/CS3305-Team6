@@ -33,7 +33,8 @@
                     "img/Level2/grassCenter.png", 
                     "img/Level2/bee_fly.png", 
                     "img/Level2/thorns.png", 
-                    "img/Level2/spear.png"
+                    "img/Level2/spear.png",
+                    "img/level2/flag.png"
                 ],
 
     "text" :    [],

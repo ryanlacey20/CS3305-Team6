@@ -33,7 +33,8 @@
                     "img/Level3/Tiles/caveMid.png",
                     "img/Level3/Tiles/caveLeft.png",
                     "img/Level3/Tiles/caveRight.png",
-                    "img/Level3/Tiles/box.png"
+                    "img/Level3/Tiles/box.png",
+                    "img/level2/flag.png"
                 ],
 
     "text" :    [],

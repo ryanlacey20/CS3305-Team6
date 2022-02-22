@@ -77,6 +77,13 @@ class World():
 				elif bit == "E":
 					enemy = Enemy(self, column * game.block_size, row_count * game.block_size + 22)
 					enemy_group.add(enemy)
+				elif bit == 6:
+					block_skin = pygame.transform.scale(self.textures[bit - 1], (game.block_size, game.block_size))
+					block_rect = block_skin.get_rect()
+					block_rect.x = column * game.block_size
+					block_rect.y = row_count * game.block_size
+					block = (block_skin, block_rect)
+					self.block_list.append(block)
 				column += 1
 			row_count += 1
 
