@@ -3,6 +3,7 @@ from World import *
 from Player import *
 from UI import *
 from Functions import *
+from menu import *
 
 
 space_level = readLevel("levels/space.json")
@@ -21,9 +22,16 @@ world = World(game, levels[level], levels[level]["music"], enemy_group, levels[l
 player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
 ui = UI(game)
 
+menu = Menu(game)
+
 run = True
 clock = pygame.time.Clock()
 while run:
+
+    while game.running:
+        game.current_menu.display()
+        game.running = False
+
     clock.tick(game.fps)
 
     world.draw()

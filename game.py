@@ -1,4 +1,5 @@
 import pygame
+from menu import *
 
 class Game():
 	def __init__(self, title, width, height, levelid):
@@ -16,6 +17,16 @@ class Game():
 		self.screen = pygame.display.set_mode((width, height))
 
 		self.updateTitle(title)
+
+		self.running = True
+		#self.playing
+
+		self.display = pygame.Surface((self.width, self.height))
+
+		self.main_menu = MainMenu(self)
+		self.load_menu = LoadMenu(self)
+
+		self.current_menu = self.main_menu
 
 
 
