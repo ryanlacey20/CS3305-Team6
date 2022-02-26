@@ -1,0 +1,5 @@
+Lives.py - New
+Main.py -  Added lives import and lines:
+lives = lives(game) at line 21
+lives.drawLives() at line 37
+Player.py - Added the lives lost functionality to collision detection with enemy at lines 119-123
