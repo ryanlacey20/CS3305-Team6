@@ -1,10 +1,11 @@
 import pygame
-
+number = pygame.time.get_ticks()
 class Player():
-	def __init__(self, game, world, x, y, textures, jump_texture):
-
+	def __init__(self, game, world, x, y, textures, jump_texture, lives):
+		self.number = pygame.time.get_ticks()
 		self.world = world
 		self.game = game
+		self.lives = lives
 
 		self.orientation = "Right"
 		self.anim_images = []
@@ -109,7 +110,12 @@ class Player():
 				continue
 			# Collided on the x axis, hurt him
 			if enemy.rect.colliderect(self.rect.x + dx, self.rect.y, self.width, self.height):
-				pass
+				# Checks if a second has passed since the last time damage was taken
+				if pygame.time.get_ticks() - self.number > 1000:
+					if self.lives.livesCount() > 0:
+						self.lives.lose_life()
+						self.lives.drawLives()
+						self.number = pygame.time.get_ticks()
 
 			# Collided on the y axis, do damage to the enemy
 			# Y axis is above the enemy

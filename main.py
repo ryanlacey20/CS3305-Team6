@@ -4,6 +4,7 @@ from Player import *
 from UI import *
 from Functions import *
 from menu import *
+from lives import *
 
 
 space_level = readLevel("levels/space.json")
@@ -18,8 +19,9 @@ enemy_group = pygame.sprite.Group()
 text = levels[level]["text"]
 
 game = Game(levels[level]["Title"], 1000, 600, levels[level]["ID"])
+lives = lives(game)
 world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"], text)
-player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"])
+player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"], lives)
 ui = UI(game)
 
 menu = Menu(game)
@@ -35,7 +37,9 @@ while run:
     clock.tick(game.fps)
 
     world.draw()
-
+    lives.drawLives()
+    if player.lives.livesCount()==0:
+        run = False
     enemy_group.update()
     enemy_group.draw(game.screen)
 
