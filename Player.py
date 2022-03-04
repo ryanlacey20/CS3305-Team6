@@ -1,7 +1,7 @@
 import pygame
 number = pygame.time.get_ticks()
 class Player():
-	def __init__(self, game, world, x, y, textures, jump_texture, lives):
+	def __init__(self, game, world, level, x, y, lives):
 		self.number = pygame.time.get_ticks()
 		self.world = world
 		self.game = game
@@ -15,9 +15,9 @@ class Player():
 		self.index = 0
 		self.counter = 0
 
-		img = pygame.image.load(textures[0])
+		img = pygame.image.load(level["player_textures"][0])
 
-		for texture in textures:
+		for texture in level["player_textures"]:
 			aimg = pygame.image.load(texture)
 			aimg = pygame.transform.scale(aimg, (self.width, self.height))
 			self.anim_images.append(aimg)
@@ -28,7 +28,7 @@ class Player():
 		self.rect.y = y
 		self.vely = 0
 		self.jumped = False
-		self.jumpImage = pygame.image.load(jump_texture)
+		self.jumpImage = pygame.image.load(level["player_jump_texture"])
 
 	def update(self):
 		key = pygame.key.get_pressed()
@@ -74,6 +74,9 @@ class Player():
 				self.image = self.anim_images[self.index]
 			else:
 				self.image = pygame.transform.flip(self.anim_images[self.index], True, False)
+
+			if self.jumped == False:
+				pygame.mixer.Sound.play(self.world.footstep_sound)
 
 		#gravity
 		# Is it the space level, if so drop the gravity

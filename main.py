@@ -20,8 +20,8 @@ text = levels[level]["text"]
 
 game = Game(levels[level]["Title"], 1000, 600, levels[level]["ID"])
 lives = lives(game)
-world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"], text)
-player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"], lives)
+world = World(game, levels[level], enemy_group)
+player = Player(game, world, levels[level], 100, game.height - 150, lives)
 ui = UI(game)
 
 menu = Menu(game)
@@ -60,7 +60,7 @@ while run:
         if level != len(levels) - 1:
             level += 1
             enemy_group.empty()
-            world = World(game, levels[level], levels[level]["music"], enemy_group, levels[level]["enemy_textures"], levels[level]["enemy_death_texture"], levels[level]["enemy_death_sound"], levels[level]["text"])
-            player = Player(game, world, 100, game.height - 150, levels[level]["player_textures"], levels[level]["player_jump_texture"], lives)
+            world = World(game, levels[level], enemy_group)
+            player = Player(game, world, levels[level], 100, game.height - 150, lives)
             game.updateTitle(levels[level]["Title"])
             game.levelid = levels[level]["ID"]

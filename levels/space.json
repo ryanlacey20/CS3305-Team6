@@ -27,6 +27,8 @@
     "enemy_death_texture" : "img/Level1/Enemy/slimeDead.png",
 
     "enemy_death_sound" : "sounds/Level1/enemy_death.mp3",
+
+    "footstep_sound" : "sounds/Level1/footstep.mp3",
     
     "textures": [    
                     "img/Level1/Tiles/castleCenter.png", 

@@ -3,16 +3,18 @@ from Functions import *
 from Enemy import *
 
 class World():
-	def __init__(self, game, level, music, enemy_group, enemy_textures, enemy_death_texture, enemy_death_sound, text):
+	def __init__(self, game, level, enemy_group):
 		self.game = game
 		self.background = pygame.image.load(level["background"])
-		self.enemy_textures = enemy_textures
-		self.enemy_death_texture = enemy_death_texture
-		self.enemy_death_sound = pygame.mixer.Sound(enemy_death_sound)
+		self.enemy_textures = level["enemy_textures"]
+		self.enemy_death_texture = level["enemy_death_texture"]
+		self.enemy_death_sound = pygame.mixer.Sound(level["enemy_death_sound"])
+
+		self.footstep_sound = pygame.mixer.Sound(level["footstep_sound"])
 
 		self.levelid = level["ID"]
 
-		self.text = text
+		self.text = level["text"]
 		self.texts = []
 
 		pygame.font.init()
@@ -29,7 +31,7 @@ class World():
 		self.campos = 100
 		self.textures = []
 
-		self.musicUpdater(music)
+		self.musicUpdater(level["music"])
 
 		for texture in level["textures"]:
 			self.textures.append(pygame.image.load(texture))

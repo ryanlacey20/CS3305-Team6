@@ -28,6 +28,8 @@
 
     "enemy_death_sound" : "sounds/Level1/enemy_death.mp3",
 
+    "footstep_sound" : "sounds/Level1/footstep.mp3",
+
     "textures": [
                     "img/Level3/Tiles/caveCenter.png",
                     "img/Level3/Tiles/caveMid.png",
