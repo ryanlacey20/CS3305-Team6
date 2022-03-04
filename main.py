@@ -37,9 +37,11 @@ while run:
     clock.tick(game.fps)
 
     world.draw()
+
     lives.drawLives()
     if player.lives.livesCount()==0:
         run = False
+
     enemy_group.update()
     enemy_group.draw(game.screen)
 
