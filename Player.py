@@ -37,6 +37,7 @@ class Player():
 
 		walk_cooldown = 1
 
+
 		if key[pygame.K_SPACE] and self.jumped == False:
 			self.jump()
 		if key[pygame.K_LEFT]:

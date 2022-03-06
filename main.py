@@ -28,7 +28,9 @@ menu = Menu(game)
 
 run = True
 clock = pygame.time.Clock()
+
 while run:
+    level_reset = False
 
     while game.running:
         game.current_menu.display()
@@ -57,10 +59,17 @@ while run:
 
     pygame.display.update()
 
+
+    if player.rect.y + player.height >= player.game.height - player.game.block_size:
+        if pygame.time.get_ticks() - player.number > 1000:
+            player.lives.lose_life()
+            player.number = pygame.time.get_ticks()
+            level_reset = True
     # When the camera gets passed 150,000 units then switch to the next level
-    if(abs(world.camAbsolutePosition) > 350000):
+    if(abs(world.camAbsolutePosition) > 350000 or level_reset == True):
         if level != len(levels) - 1:
-            level += 1
+            if level_reset == False:
+                level += 1
             enemy_group.empty()
             world = World(game, levels[level], enemy_group)
             player = Player(game, world, levels[level], 100, game.height - 150, lives)
