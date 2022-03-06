@@ -4,10 +4,11 @@ img = pygame.image.load('img/Heart.png')
 img = pygame.transform.scale(img, (25, 25))
 
 class lives():
+
     def __init__(self, game):
         self.game = game
         self.lives = 5
-
+        self.ouch_sound = pygame.mixer.Sound("music/ouch.mp3")
     def livesCount(self):
         return int(self.lives)
 
@@ -19,6 +20,7 @@ class lives():
 
     def lose_life(self):
         if self.lives > 0:
+            pygame.mixer.Sound.play(self.ouch_sound)
             self.lives = self.lives -1
         return
 

@@ -12,6 +12,7 @@ class World():
 
 		self.footstep_sound = pygame.mixer.Sound(level["footstep_sound"])
 
+
 		self.levelid = level["ID"]
 
 		self.text = level["text"]
