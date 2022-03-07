@@ -30,6 +30,8 @@ class Player():
 		self.jumped = False
 		self.jumpImage = pygame.image.load(level["player_jump_texture"])
 
+		self.step_counter = 0
+
 	def update(self):
 		key = pygame.key.get_pressed()
 		dx = 0
@@ -76,8 +78,10 @@ class Player():
 			else:
 				self.image = pygame.transform.flip(self.anim_images[self.index], True, False)
 
-			if self.jumped == False:
+			self.step_counter += 1
+			if self.jumped == False and self.step_counter > 6:
 				pygame.mixer.Sound.play(self.world.footstep_sound)
+				self.step_counter = 0
 
 		#gravity
 		# Is it the space level, if so drop the gravity
