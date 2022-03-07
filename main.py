@@ -16,11 +16,12 @@ levels = [space_level, jungle_level, cave_level]
 level = 0
 
 enemy_group = pygame.sprite.Group()
+finish_flag = pygame.sprite.Group()
 text = levels[level]["text"]
 
 game = Game(levels[level]["Title"], 1000, 600, levels[level]["ID"])
 lives = lives(game)
-world = World(game, levels[level], enemy_group)
+world = World(game, levels[level], enemy_group, finish_flag)
 player = Player(game, world, levels[level], 100, game.height - 150, lives)
 ui = UI(game)
 
@@ -49,6 +50,8 @@ while run:
     enemy_group.update()
     enemy_group.draw(game.screen)
 
+    finish_flag.draw(game.screen)
+
     player.update()
 
     ui.draw()
@@ -68,7 +71,7 @@ while run:
             player.number = pygame.time.get_ticks()
             level_reset = True
     # When the camera gets passed 150,000 units then switch to the next level
-    if abs(world.camAbsolutePosition) > 350000 or level_reset == True or game_reset == True:
+    if pygame.sprite.spritecollide(player, finish_flag, False) or level_reset == True or game_reset == True:
 
         if level != len(levels) - 1:
             if level_reset == False:
@@ -76,7 +79,8 @@ while run:
             if game_reset == True:
                 level = 0
             enemy_group.empty()
-            world = World(game, levels[level], enemy_group)
+            finish_flag.empty()
+            world = World(game, levels[level], enemy_group, finish_flag)
             player = Player(game, world, levels[level], 100, game.height - 200, lives)
             game.updateTitle(levels[level]["Title"])
             game.levelid = levels[level]["ID"]
