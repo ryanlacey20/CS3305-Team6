@@ -1,0 +1,61 @@
+{
+    "Title": "Candy Level",
+    "ID": 4,
+    "background": "img/Level4/background.jpg",
+
+    "player_textures" : [
+                            "img/Level4/player/p2_walk0.png",
+                            "img/Level4/player/p2_walk01.png",
+                            "img/Level4/player/p2_walk02.png",
+                            "img/Level4/player/p2_walk03.png",
+                            "img/Level4/player/p2_walk04.png",
+                            "img/Level4/player/p2_walk05.png",
+                            "img/Level4/player/p2_walk06.png",
+                            "img/Level4/player/p2_walk07.png",
+                            "img/Level4/player/p2_walk08.png",
+                            "img/Level4/player/p2_walk09.png",
+                            "img/Level4/player/p2_walk10.png",
+                            "img/Level4/player/p2_walk11.png"
+                        ],
+
+    "player_jump_texture" : "img/Level4/player/jump.png",
+
+    "enemy_textures" : [
+                        "img/Level1/Enemy/slimeWalk1.png"
+                       ],
+
+    "enemy_death_texture" : "img/Level1/Enemy/slimeDead.png",
+
+    "enemy_death_sound" : "sounds/Level1/enemy_death.mp3",
+
+    "footstep_sound" : "sounds/Level1/footstep.mp3",
+
+    "textures": [
+                    "img/Level4/Tiles/cakeCenter.png",
+                    "img/Level4/Tiles/cake.png",
+                    "img/Level4/Tiles/cakeLeft.png",
+                    "img/Level4/Tiles/cakeRight.png",
+                    "img/Level3/Tiles/box.png",
+                    "img/Level2/flag.png"
+                ],
+
+    "text" :    [],
+
+    "data": [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ,0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 3, 2, 4, 0, 0, 1, 0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0 ,0 ,0 ,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 4, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0,0 ,1 ,1 ,1 ,1],
+                [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,1],
+                [1, 1, 0, 0, 0, 0, 2, 0, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,1],
+                [1, 1, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0 ,2 ,0 ,0 ,2 ,2 ,2 ,1],
+                [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+            ],
+
+    "music" : "music/candy_music.mp3"
+
+}
