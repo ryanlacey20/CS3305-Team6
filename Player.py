@@ -41,7 +41,7 @@ class Player():
 
 
 		if key[pygame.K_SPACE] and self.jumped == False:
-			self.jump()
+			self.jump(True)
 		if key[pygame.K_LEFT]:
 			dx -= 5
 			self.counter += 1
@@ -150,9 +150,12 @@ class Player():
 		self.game.screen.blit(self.image, self.rect)
 
 
-	def jump(self):
+	def jump(self, sound=False):
 		self.vely = -15
 		self.jumped = True
+
+		if sound:
+			pygame.mixer.Sound.play(self.world.jump_sound)
 
 		if self.orientation == "Right":
 			self.image = self.jumpImage

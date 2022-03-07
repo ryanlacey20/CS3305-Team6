@@ -20,6 +20,8 @@
 
     "player_jump_texture" : "img/Level2/player/jump.png",
 
+    "player_jump_sound" : "sounds/Level1/jump.wav",
+
     "enemy_textures" : [
                         "img/Level1/Enemy/slimeWalk1.png"
                        ],
