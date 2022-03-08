@@ -76,7 +76,7 @@ while run:
             level = 0
         if level_reset == False and game_reset == False and level != len(levels)-2:
                 level += 1
-        elif level == len(levels)-2:
+        elif level == len(levels)-2 and level_reset == False:
             level = len(levels)-1
         enemy_group.empty()
         finish_flag.empty()

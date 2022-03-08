@@ -41,7 +41,7 @@
                 ],
 
     "text" :    [
-                    ["WELCOME TO NAME", 50, 400, 225],
+                    ["WELCOME TO SPACE HOPPERS", 50, 400, 225],
                     ["ARROW KEYS TO MOVE", 30, 450, 300],
                     ["SPACE TO JUMP", 30, 1090, 300],
                     ["AVOID ENEMIES TO STOP YOURSELF BEING HURT", 30, 2100, 200],
