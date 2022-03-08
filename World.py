@@ -1,9 +1,10 @@
 import pygame
 from Functions import *
 from Enemy import *
+from Flag import *
 
 class World():
-	def __init__(self, game, level, enemy_group):
+	def __init__(self, game, level, enemy_group, finish_flag):
 		self.game = game
 		self.background = pygame.image.load(level["background"])
 		self.enemy_textures = level["enemy_textures"]
@@ -12,11 +13,15 @@ class World():
 
 		self.footstep_sound = pygame.mixer.Sound(level["footstep_sound"])
 
+		self.jump_sound = pygame.mixer.Sound(level["player_jump_sound"])
+
 
 		self.levelid = level["ID"]
 
 		self.text = level["text"]
 		self.texts = []
+
+		self.enemy_particles = []
 
 		pygame.font.init()
 
@@ -28,6 +33,7 @@ class World():
 		self.camAbsolutePosition = 100
 
 		self.enemy_group = enemy_group
+		self.finish_flag = finish_flag
 
 		self.campos = 100
 		self.textures = []
@@ -87,6 +93,9 @@ class World():
 					block_rect.y = row_count * game.block_size
 					block = (block_skin, block_rect)
 					self.block_list.append(block)
+				elif bit == "F":
+					flag = Flag(self, column * game.block_size, row_count * game.block_size, level["flag_texture"])
+					finish_flag.add(flag)
 				column += 1
 			row_count += 1
 
@@ -99,6 +108,12 @@ class World():
 
 		for enemy in self.enemy_group:
 			enemy.rect.x -= self.campos
+
+		for particle in self.enemy_particles:
+			particle[0][0] -= self.campos
+
+		for flag in self.finish_flag:
+			flag.rect.x -= self.campos
 
 		for block in self.block_list:
 			b = block

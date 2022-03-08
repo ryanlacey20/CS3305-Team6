@@ -30,6 +30,11 @@ class Player():
 		self.jumped = False
 		self.jumpImage = pygame.image.load(level["player_jump_texture"])
 
+		self.step_counter = 0
+
+		self.particles = []
+		self.particle_timer = 0
+
 	def update(self):
 		key = pygame.key.get_pressed()
 		dx = 0
@@ -37,9 +42,22 @@ class Player():
 
 		walk_cooldown = 1
 
+		for particle in self.particles:
+			if particle[3] == True:
+				particle[0][0] -= particle[1][0]
+				particle[0][1] -= particle[1][1]
+			else:
+				particle[0][0] += particle[1][0]
+				particle[0][1] += particle[1][1]
+			particle[2] -= 0.1
+			pygame.draw.circle(self.game.screen, (255, 255, 255), particle[0], particle[2])
+
+			if particle[2] <= 0:
+				self.particles.remove(particle)
+
 
 		if key[pygame.K_SPACE] and self.jumped == False:
-			self.jump()
+			self.jump(True)
 		if key[pygame.K_LEFT]:
 			dx -= 5
 			self.counter += 1
@@ -71,13 +89,24 @@ class Player():
 			if self.index >= len(self.anim_images):
 				self.index = 0
 
+			self.particle_timer += 1
 			if self.orientation == "Right":
 				self.image = self.anim_images[self.index]
+				if self.particle_timer > 5:
+					self.particles.append([[self.rect.x + 3, (self.rect.y + self.height) - 5], [1, 0.5], 4, True])
+					self.particles.append([[self.rect.x + 5, (self.rect.y + self.height) - 10], [0.5, 1], 4, True])
+					self.particle_timer = 0
 			else:
+				if self.particle_timer > 5:
+					self.particles.append([[(self.rect.x + self.width), (self.rect.y + self.height - 5)], [0.5, -1], 4, False])
+					self.particles.append([[(self.rect.x + self.width), (self.rect.y + self.height - 10)], [0.5, -1], 4, False])
+					self.particle_timer = 0
 				self.image = pygame.transform.flip(self.anim_images[self.index], True, False)
 
-			if self.jumped == False:
+			self.step_counter += 1
+			if self.jumped == False and self.step_counter > 6:
 				pygame.mixer.Sound.play(self.world.footstep_sound)
+				self.step_counter = 0
 
 		#gravity
 		# Is it the space level, if so drop the gravity
@@ -146,9 +175,12 @@ class Player():
 		self.game.screen.blit(self.image, self.rect)
 
 
-	def jump(self):
+	def jump(self, sound=False):
 		self.vely = -15
 		self.jumped = True
+
+		if sound:
+			pygame.mixer.Sound.play(self.world.jump_sound)
 
 		if self.orientation == "Right":
 			self.image = self.jumpImage
