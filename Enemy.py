@@ -28,6 +28,15 @@ class Enemy(pygame.sprite.Sprite):
 
 	def update(self):
 
+		for particle in self.world.enemy_particles:
+			particle[0][0] -= particle[1][0]
+			particle[0][1] -= particle[1][1]
+			particle[2] -= 0.1
+			pygame.draw.circle(self.world.game.screen, (223, 138, 244), particle[0], particle[2])
+
+			if particle[2] <= 0:
+				self.world.enemy_particles.remove(particle)
+
 		if not self.dead:
 			if self.move_direction == 1:
 				self.rect.x += 1
@@ -59,6 +68,10 @@ class Enemy(pygame.sprite.Sprite):
 		self.image = self.enemy_death_texture
 		self.rect.y = self.rect.y + 17
 		pygame.mixer.Sound.play(self.world.enemy_death_sound)
+
+		self.world.enemy_particles.append([[self.rect.x, self.rect.y], [0, 0.5], 5])
+		self.world.enemy_particles.append([[self.rect.x + 20, self.rect.y], [0, 1], 5])
+		self.world.enemy_particles.append([[self.rect.x + 40, self.rect.y], [0, 0.5], 5])
 
 
 

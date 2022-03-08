@@ -21,6 +21,8 @@ class World():
 		self.text = level["text"]
 		self.texts = []
 
+		self.enemy_particles = []
+
 		pygame.font.init()
 
 		for text in self.text:
@@ -106,6 +108,9 @@ class World():
 
 		for enemy in self.enemy_group:
 			enemy.rect.x -= self.campos
+
+		for particle in self.enemy_particles:
+			particle[0][0] -= self.campos
 
 		for flag in self.finish_flag:
 			flag.rect.x -= self.campos
