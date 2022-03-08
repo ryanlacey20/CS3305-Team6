@@ -62,7 +62,7 @@ class MainMenu(Menu):
             self.key_down_check()
             self.check_input()
             pygame.Surface((self.game.width, self.game.height)).fill((0, 0, 0))
-            self.draw_text('Game Name', 20, self.middle[0], self.middle[1] - 80)
+            self.draw_text('Space Hoppers', 20, self.middle[0], self.middle[1] - 80)
             self.draw_text('Start Game', 15, self.start[0], self.start[1])
             self.draw_cursor()
             self.reset()
