@@ -6,12 +6,13 @@ from Functions import *
 from menu import *
 from lives import *
 
-
 space_level = readLevel("levels/space.json")
 jungle_level = readLevel("levels/jungle.json")
 cave_level = readLevel("levels/cave.json")
+candy_level = readLevel("levels/candy.json")
+completed = readLevel("levels/completion.json")
 
-levels = [space_level, jungle_level, cave_level]
+levels = [space_level, jungle_level, cave_level, candy_level, completed]
 
 level = 0
 
@@ -42,7 +43,7 @@ while run:
     world.draw()
 
     lives.drawLives()
-    if player.lives.livesCount()==0:
+    if player.lives.livesCount() == 0:
         game_reset = True
         for i in range(5):
             player.lives.gain_life()
@@ -64,7 +65,6 @@ while run:
 
     pygame.display.update()
 
-
     if player.rect.y + player.height >= player.game.height - player.game.block_size:
         if pygame.time.get_ticks() - player.number > 1000:
             player.lives.lose_life()
@@ -72,15 +72,15 @@ while run:
             level_reset = True
     # When the camera gets passed 150,000 units then switch to the next level
     if pygame.sprite.spritecollide(player, finish_flag, False) or level_reset == True or game_reset == True:
-
-        if level != len(levels) - 1:
-            if level_reset == False:
+        if game_reset == True:
+            level = 0
+        if level_reset == False and game_reset == False and level != len(levels)-2:
                 level += 1
-            if game_reset == True:
-                level = 0
-            enemy_group.empty()
-            finish_flag.empty()
-            world = World(game, levels[level], enemy_group, finish_flag)
-            player = Player(game, world, levels[level], 100, game.height - 200, lives)
-            game.updateTitle(levels[level]["Title"])
-            game.levelid = levels[level]["ID"]
+        elif level == len(levels)-2:
+            level = len(levels)-1
+        enemy_group.empty()
+        finish_flag.empty()
+        world = World(game, levels[level], enemy_group, finish_flag)
+        player = Player(game, world, levels[level], 100, game.height - 200, lives)
+        game.updateTitle(levels[level]["Title"])
+        game.levelid = levels[level]["ID"]

@@ -1,0 +1,67 @@
+{
+    "Title": "Well Done!",
+    "ID": 5,
+    "background": "img/Completion/celebration.jpeg",
+
+    "player_textures" : [
+                            "img/Level3/player/p3_walk0.png",
+                            "img/Level3/player/p3_walk1.png",
+                            "img/Level3/player/p3_walk2.png",
+                            "img/Level3/player/p3_walk3.png",
+                            "img/Level3/player/p3_walk4.png",
+                            "img/Level3/player/p3_walk5.png",
+                            "img/Level3/player/p3_walk6.png",
+                            "img/Level3/player/p3_walk7.png",
+                            "img/Level3/player/p3_walk8.png",
+                            "img/Level3/player/p3_walk9.png",
+                            "img/Level3/player/p3_walk10.png",
+                            "img/Level3/player/p3_walk11.png"
+                        ],
+
+    "player_jump_texture" : "img/Level3/player/jump.png",
+
+    "player_jump_sound" : "sounds/Level1/jump.wav",
+
+    "enemy_textures" : [
+                        "img/Level1/Enemy/slimeWalk1.png"
+                       ],
+
+    "enemy_death_texture" : "img/Level1/Enemy/slimeDead.png",
+
+    "enemy_death_sound" : "sounds/Level1/enemy_death.mp3",
+
+    "footstep_sound" : "sounds/Level1/footstep.mp3",
+
+    "textures": [
+                    "img/Completion/sandMid.png",
+                    "img/Completion/sandCenter.png",
+                    "img/Level3/Tiles/caveLeft.png",
+                    "img/Level3/Tiles/caveRight.png",
+                    "img/Level3/Tiles/box.png",
+                    "img/Level2/flag.png"
+                ],
+
+    "text" :    [
+                    ["Congratulations you beat the game!", 100, 1090, 300]
+                ],
+
+    "data": [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+            ],
+
+  "flag_texture" : "img/Level2/flag.png",
+
+    "music" : "music/cave_music.mp3"
+
+}
