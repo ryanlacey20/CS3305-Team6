@@ -1,6 +1,6 @@
 import pygame
 
-img = pygame.image.load('img/Heart.png')
+img = pygame.image.load('img/heart.png')
 img = pygame.transform.scale(img, (25, 25))
 
 class lives():

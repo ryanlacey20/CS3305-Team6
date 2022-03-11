@@ -36,7 +36,11 @@ while run:
     game_reset = False
     while game.running:
         game.current_menu.display()
-        game.running = False
+        if game.current_menu.playing:
+            game.running = False
+        # if exit selected exit run loop
+        if not game.current_menu.run:
+            run = False
 
     clock.tick(game.fps)
 

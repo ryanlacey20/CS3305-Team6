@@ -19,12 +19,10 @@ class Game():
 		self.updateTitle(title)
 
 		self.running = True
-		#self.playing
 
-		self.display = pygame.Surface((self.width, self.height))
+		self.display = pygame.Surface((width, height))
 
 		self.main_menu = MainMenu(self)
-		self.load_menu = LoadMenu(self)
 
 		self.current_menu = self.main_menu
 
